@@ -1,0 +1,23 @@
+{
+    "name": "rbwebdesigns/quizzerino-open-trivia-db-source",
+    "description": "Source questions from the Open Trivia DB",
+    "type": "quizzerino-question-source",
+	"extra": {
+        "installer-name": "OpenTriviaDB"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rbertram90/quizzerino-installer.git"
+        }
+    ],
+    "require": {
+        "rbwebdesigns/quizzerino-installer": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Ricky Bertram",
+            "email": "ricky@rbwebdesigns.co.uk"
+        }
+    ]
+}

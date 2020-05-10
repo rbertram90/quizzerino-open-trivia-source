@@ -1,0 +1,8 @@
+[
+    {
+        "id": "example.helloworld",
+        "title": "Hello world",
+        "description": "First quiz ever",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource"
+    }
+]
