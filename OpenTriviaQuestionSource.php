@@ -38,7 +38,7 @@ class OpenTriviaQuestionSource implements SourceInterface {
             if ($response->getStatusCode() == 200) {
                 $json = $response->getBody()->getContents();
                 $data = json_decode($json);
-                $this->sessionToken = $data['token'];
+                $this->sessionToken = $data->token;
             }
             else {
                 print "ERROR: Unable to get session token" . PHP_EOL;
@@ -60,7 +60,7 @@ class OpenTriviaQuestionSource implements SourceInterface {
 
         if ($response->getStatusCode() == 200) {
             $json = $response->getBody()->getContents();
-            $data = json_decode($json);
+            $data = json_decode($json, true);
 
             $result = $data['results'][0];
             // Randomly place the correct answer
