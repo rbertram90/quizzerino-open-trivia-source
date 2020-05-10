@@ -16,6 +16,7 @@ class OpenTriviaQuestionSource implements SourceInterface {
 
     protected $client;
     protected $sessionToken = null;
+    protected $questionStore = [];
 
     public function __construct() {
         // @todo pass client through as constructor argument
@@ -49,11 +50,31 @@ class OpenTriviaQuestionSource implements SourceInterface {
     }
 
     public function getQuestion(): array {
+
+        // Have we still got questions left to ask from a
+        // previous API call?
+        if (count($this->questionStore) > 0) {
+            $result = array_shift($this->questionStore);
+
+            // Randomly place the correct answer
+            $correct_index = rand(0, count($result['incorrect_answers']));
+
+            // Add the correct answer in the random index into the other incorrect answers list
+            array_splice($result['incorrect_answers'], $correct_index, 0, $result['correct_answer']);
+
+            return [
+                'text' => $result['question'],
+                'options' => $result['incorrect_answers'],
+                'correct_option_index' => $correct_index,
+            ];
+        }
+
+
         $token = $this->getSessionToken();
 
         $response = $this->client->request('GET', 'api.php', [
             'query' => [
-                'amount' => 1,
+                'amount' => 10,
                 'token' => $token
             ],
         ]);
@@ -62,9 +83,11 @@ class OpenTriviaQuestionSource implements SourceInterface {
             $json = $response->getBody()->getContents();
             $data = json_decode($json, true);
 
-            $result = $data['results'][0];
+            $this->questionStore = $data['results'];
+            $result = array_shift($this->questionStore);
+
             // Randomly place the correct answer
-            $correct_index = rand(0, count($result['incorrect_answers']) + 1);
+            $correct_index = rand(0, count($result['incorrect_answers']));
 
             // Add the correct answer in the random index into the other incorrect answers list
             array_splice($result['incorrect_answers'], $correct_index, 0, $result['correct_answer']);
