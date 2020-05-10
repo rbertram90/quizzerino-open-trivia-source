@@ -6,7 +6,8 @@
         "installer-name": "OpenTriviaDB"
     },
     "require": {
-        "rbwebdesigns/quizzerino-installer": "dev-master"
+        "rbwebdesigns/quizzerino-installer": "dev-master",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "authors": [
         {
