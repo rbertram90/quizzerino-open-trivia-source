@@ -1,8 +1,218 @@
 [
     {
-        "id": "example.helloworld",
-        "title": "Hello world",
-        "description": "First quiz ever",
-        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource"
+        "id": "otdb.general",
+        "title": "Open Trivia DB - General knowledge",
+        "description": "General knowledge based questions only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 9
+        }
+    },
+    {
+        "id": "otdb.books",
+        "title": "Open Trivia DB - Entertainment: Books",
+        "description": "Questions will be based on books only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 10
+        }
+    },
+    {
+        "id": "otdb.films",
+        "title": "Open Trivia DB - Entertainment: Films",
+        "description": "Questions will be based on films only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 11
+        }
+    },
+    {
+        "id": "otdb.music",
+        "title": "Open Trivia DB - Entertainment: Films",
+        "description": "Questions will be music themed",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 12
+        }
+    },
+    {
+        "id": "otdb.musicals",
+        "title": "Open Trivia DB - Entertainment: Musicals & Theatre",
+        "description": "Questions will be based on musicals",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 13
+        }
+    },
+    {
+        "id": "otdb.television",
+        "title": "Open Trivia DB - Entertainment: Television",
+        "description": "Questions will be based on television programmes",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 14
+        }
+    },
+    {
+        "id": "otdb.games",
+        "title": "Open Trivia DB - Entertainment: Video games",
+        "description": "Questions will be based on video games only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 15
+        }
+    },
+    {
+        "id": "otdb.boardgames",
+        "title": "Open Trivia DB - Entertainment: Board games",
+        "description": "Questions will be based on board games only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 16
+        }
+    },
+    {
+        "id": "otdb.comics",
+        "title": "Open Trivia DB - Entertainment: Comics",
+        "description": "Questions will be based on comics only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 29
+        }
+    },
+    {
+        "id": "otdb.anime",
+        "title": "Open Trivia DB - Entertainment: Japanese Anime & Manga",
+        "description": "Questions will be based on Japanese anime & nanga only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 31
+        }
+    },
+    {
+        "id": "otdb.cartoons",
+        "title": "Open Trivia DB - Entertainment: Cartoon & Animations",
+        "description": "Questions will be based on cartoons and animations only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 32
+        }
+    },
+    {
+        "id": "otdb.science",
+        "title": "Open Trivia DB - Science & Nature",
+        "description": "Questions will be based on science and nature only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 17
+        }
+    },
+    {
+        "id": "otdb.computers",
+        "title": "Open Trivia DB - Science: Computers",
+        "description": "Questions will be based on computers only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 18
+        }
+    },
+    {
+        "id": "otdb.maths",
+        "title": "Open Trivia DB - Science: Mathematics",
+        "description": "Questions will be maths based",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 19
+        }
+    },
+    {
+        "id": "otdb.gadgets",
+        "title": "Open Trivia DB - Science: Gadgets",
+        "description": "Questions will be based on gadgets only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 30
+        }
+    },
+    {
+        "id": "otdb.mythology",
+        "title": "Open Trivia DB - Mythology",
+        "description": "Questions will be based on mythology only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 20
+        }
+    },
+    {
+        "id": "otdb.sports",
+        "title": "Open Trivia DB - Sports",
+        "description": "Questions will be based on sports only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 21
+        }
+    },
+    {
+        "id": "otdb.geography",
+        "title": "Open Trivia DB - Geography",
+        "description": "Questions will be based on geography only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 22
+        }
+    },
+    {
+        "id": "otdb.history",
+        "title": "Open Trivia DB - History",
+        "description": "Questions will be based on history only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 23
+        }
+    },
+    {
+        "id": "otdb.politics",
+        "title": "Open Trivia DB - Politics",
+        "description": "Questions will be based on politics only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 24
+        }
+    },
+    {
+        "id": "otdb.art",
+        "title": "Open Trivia DB - Art",
+        "description": "Questions will be based on art only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 25
+        }
+    },
+    {
+        "id": "otdb.celebrities",
+        "title": "Open Trivia DB - Celebrities",
+        "description": "Questions will be based on celebrities only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 26
+        }
+    },
+    {
+        "id": "otdb.animals",
+        "title": "Open Trivia DB - Animals",
+        "description": "Questions will be based on animals only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 27
+        }
+    },
+    {
+        "id": "otdb.vehicles",
+        "title": "Open Trivia DB - Vehicles",
+        "description": "Questions will be based on vehicles only",
+        "controller": "\\quizzerino\\OpenTriviaDB\\OpenTriviaQuestionSource",
+        "settings": {
+            "category": 28
+        }
     }
 ]

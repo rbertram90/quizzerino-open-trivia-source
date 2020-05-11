@@ -3,32 +3,46 @@
 namespace quizzerino\OpenTriviaDB;
 
 use rbwebdesigns\quizzerino\SourceInterface;
+use rbwebdesigns\quizzerino\Logger;
 use GuzzleHttp\Client;
 
 /**
- * Sources questions from the open trivia DB
+ * Sources questions from the Open Trivia DB
  * 
  * @see https://opentdb.com/api_config.php
  */
 class OpenTriviaQuestionSource implements SourceInterface {
 
+    /** @var string Endpoint URL */
     protected $url = 'https://opentdb.com/';
 
+    /** @var \GuzzleHttp\Client HTTP Client */
     protected $client;
+
+    /** @var string Session token to pass to API so that questions are not duplicated */
     protected $sessionToken = null;
+
+    /** @var mixed[] Cache of questions to prevent calling API everytime */
     protected $questionStore = [];
 
-    public function __construct() {
+    /** @var int ID of category to use */
+    protected $quizCategory;
+
+    /**
+     * OpenTriviaQuestionSource constructor
+     */
+    public function __construct($settings) {
         // @todo pass client through as constructor argument
         $this->client = new Client([
             'base_uri' => $this->url
         ]);
+        $this->quizCategory = intval($settings->category);
     }
 
     /**
      * Request a session token - these last for 6 hours
      */
-    protected function getSessionToken() {
+    protected function getSessionToken() : string {
         if (is_null($this->sessionToken)) {
             $response = $this->client->request('GET', 'api_token.php', [
                 'query' => [
@@ -42,14 +56,17 @@ class OpenTriviaQuestionSource implements SourceInterface {
                 $this->sessionToken = $data->token;
             }
             else {
-                print "ERROR: Unable to get session token" . PHP_EOL;
+                Logger::error("Unable to get session token");
             }
         }
 
         return $this->sessionToken;
     }
 
-    public function getQuestion(): array {
+    /**
+     * Get a question from API or cache
+     */
+    public function getQuestion() : array {
 
         // Have we still got questions left to ask from a
         // previous API call?
@@ -69,12 +86,12 @@ class OpenTriviaQuestionSource implements SourceInterface {
             ];
         }
 
-
         $token = $this->getSessionToken();
 
         $response = $this->client->request('GET', 'api.php', [
             'query' => [
                 'amount' => 10,
+                'category' => $this->quizCategory,
                 'token' => $token
             ],
         ]);
@@ -99,7 +116,7 @@ class OpenTriviaQuestionSource implements SourceInterface {
             ];
         }
         else {
-            print "ERROR: Unable to get question data" . PHP_EOL;
+            Logger::error("Unable to get question data");
 
             // Return a hard coded question so things don't break
             // @todo handle better!
